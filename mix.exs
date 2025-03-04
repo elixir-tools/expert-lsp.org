@@ -5,7 +5,7 @@ defmodule ExpertLspOrg.MixProject do
     [
       app: :expert_lsp_org,
       version: "0.1.0",
-      elixir: "~> 1.15",
+      elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       compilers: [:temple] ++ Mix.compilers(),
       deps: deps()
@@ -23,7 +23,7 @@ defmodule ExpertLspOrg.MixProject do
   defp deps do
     [
       {:tableau, "~> 0.17"},
-      {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
+      {:tailwind, "~> 0.3", runtime: Mix.env() == :dev},
       {:temple, "~> 0.12"}
 
       # {:dep_from_hexpm, "~> 0.3.0"},

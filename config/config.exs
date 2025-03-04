@@ -11,25 +11,20 @@ config :web_dev_utils, :reload_log, true
 # uncomment this if you use something like ngrok
 # config :web_dev_utils, :reload_url, "'wss://' + location.host + '/ws'"
 
-
 config :temple,
   engine: EEx.SmartEngine,
   attributes: {Temple, :attributes}
 
-
-
 config :tailwind,
-  version: "3.3.5",
+  version: "4.0.9",
   default: [
     args: ~w(
-    --config=assets/tailwind.config.js
     --input=assets/css/site.css
     --output=_site/css/site.css
     )
   ]
 
 config :tableau, :assets, tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
-
 
 config :tableau, :config,
   url: "http://localhost:4999",
@@ -54,4 +49,3 @@ config :tableau, Tableau.RSSExtension,
 config :elixir, :time_zone_database, Tz.TimeZoneDatabase
 
 import_config "#{Mix.env()}.exs"
-

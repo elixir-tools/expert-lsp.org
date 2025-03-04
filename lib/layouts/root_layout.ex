@@ -6,14 +6,14 @@ defmodule ExpertLspOrg.RootLayout do
     temple do
       "<!DOCTYPE html>"
 
-      html lang: "en"  do
+      html lang: "en" do
         head do
           meta charset: "utf-8"
           meta http_equiv: "X-UA-Compatible", content: "IE=edge"
           meta name: "viewport", content: "width=device-width, initial-scale=1.0"
 
           title do
-            [@page[:title], "\"ExpertLspOrg\""]
+            [@page[:title], "ExpertLspOrg"]
             |> Enum.filter(& &1)
             |> Enum.intersperse("|")
             |> Enum.join(" ")
@@ -24,7 +24,7 @@ defmodule ExpertLspOrg.RootLayout do
 
         body do
           main do
-            render @inner_content
+            render(@inner_content)
           end
 
           if Mix.env() == :dev do
@@ -35,4 +35,3 @@ defmodule ExpertLspOrg.RootLayout do
     end
   end
 end
-
