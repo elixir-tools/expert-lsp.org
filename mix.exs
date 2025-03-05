@@ -5,7 +5,8 @@ defmodule ExpertLspOrg.MixProject do
     [
       app: :expert_lsp_org,
       version: "0.1.0",
-      elixir: "~> 1.18",
+      # netlify has 1.17
+      elixir: "~> 1.17",
       start_permanent: Mix.env() == :prod,
       compilers: [:temple] ++ Mix.compilers(),
       aliases: aliases(),
