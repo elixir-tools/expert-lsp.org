@@ -8,6 +8,7 @@ defmodule ExpertLspOrg.MixProject do
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       compilers: [:temple] ++ Mix.compilers(),
+      aliases: aliases(),
       deps: deps()
     ]
   end
@@ -16,6 +17,12 @@ defmodule ExpertLspOrg.MixProject do
   def application do
     [
       extra_applications: [:logger]
+    ]
+  end
+
+  def aliases() do
+    [
+      build: ["tableau.build", "tailwind default --minify"]
     ]
   end
 

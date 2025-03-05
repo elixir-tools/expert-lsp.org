@@ -21,10 +21,13 @@
 
       systems = ["aarch64-darwin" "x86_64-darwin" "x86_64-linux"];
 
-      perSystem = _: {
+      perSystem = {pkgs, ...}: {
         beamWorkspace = {
           enable = true;
           devShell = {
+            packages = with pkgs; [
+              netlify-cli
+            ];
             languageServers.elixir = true;
             languageServers.erlang = false;
           };

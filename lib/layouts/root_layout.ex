@@ -13,7 +13,7 @@ defmodule ExpertLspOrg.RootLayout do
           meta name: "viewport", content: "width=device-width, initial-scale=1.0"
 
           title do
-            [@page[:title], "ExpertLspOrg"]
+            [@page[:title], "Expert"]
             |> Enum.filter(& &1)
             |> Enum.intersperse("|")
             |> Enum.join(" ")
@@ -22,13 +22,57 @@ defmodule ExpertLspOrg.RootLayout do
           link rel: "stylesheet", href: "/css/site.css"
         end
 
-        body do
-          main do
-            render(@inner_content)
+        body class: "bg-black text-white" do
+          main class: "container h-screen px-4 mx-auto flex flex-col" do
+            div class: "h-full flex-1" do
+              render(@inner_content)
+            end
+
+            c &footer/1
           end
 
           if Mix.env() == :dev do
             c &Tableau.live_reload/1
+          end
+        end
+      end
+    end
+  end
+
+  def footer _assigns do
+    temple do
+      footer class: "text-center my-8" do
+        p class: "text-xs" do
+          "built with"
+
+          a href: "https://github.com/elixir-tools/tableau",
+            target: "_blank",
+            rel: "noreferrer",
+            class: "italic" do
+            "Tableau"
+          end
+
+          ","
+
+          a href: "https://tailwindcss.com/",
+            target: "_blank",
+            rel: "noreferrer",
+            class: "italic" do
+            "TailwindCSS"
+          end
+
+          ", and"
+
+          a href: "https://github.com/elixir-tools/expert-lsp-org",
+            target: "_blank",
+            rel: "noreferrer",
+            class: "text-hacker italic text-red-500" do
+            "♥"
+          end
+
+          #  this is a hidden thing to identify me on mastodon 
+          a class: "hidden", rel: "me", href: "https://hachyderm.io/@mitchhanberg" do
+            "Mastodon"
           end
         end
       end

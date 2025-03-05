@@ -43,8 +43,8 @@ config :tableau, Tableau.SitemapExtension, enabled: true
 
 config :tableau, Tableau.RSSExtension,
   enabled: true,
-  title: "expert_lsp_org",
-  description: "My beautiful website"
+  title: "Expert LSP",
+  description: "Devlog of Expert LSP"
 
 config :elixir, :time_zone_database, Tz.TimeZoneDatabase
 
