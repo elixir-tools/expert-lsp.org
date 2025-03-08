@@ -63,16 +63,11 @@ defmodule ExpertLspOrg.RootLayout do
 
           ", and"
 
-          a href: "https://github.com/elixir-tools/expert-lsp-org",
+          a href: "https://github.com/elixir-tools/expert-lsp.org",
             target: "_blank",
             rel: "noreferrer",
             class: "text-hacker italic text-red-500" do
             "♥"
-          end
-
-          #  this is a hidden thing to identify me on mastodon 
-          a class: "hidden", rel: "me", href: "https://hachyderm.io/@mitchhanberg" do
-            "Mastodon"
           end
         end
       end
