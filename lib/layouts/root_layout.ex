@@ -20,6 +20,12 @@ defmodule ExpertLspOrg.RootLayout do
           end
 
           link rel: "stylesheet", href: "/css/site.css"
+
+          if Mix.env() == :prod do
+            "<!-- Plausible Analytics -->"
+            script defer: true, "data-domain": "expert-lsp.org", src: "/js/analytics.js"
+            "<!-- / Plausible -->"
+          end
         end
 
         body class: "bg-black text-white" do
