@@ -37,7 +37,7 @@ defmodule ExpertLspOrg.HomePage do
       p class: "font-sans mt-8 text-lg mb-8" do
         "Full time work on Expert is graciously funded by our sponsors. If your company would like to donate, please reach out to"
         a class: "text-purple-500 hover:underline", href: "mailto:danj@erlef.org" do
-          "Dan Jankowski"
+          "Dan Janowski"
         end
         "at the Erlang Ecosystem Foundation."
       end
