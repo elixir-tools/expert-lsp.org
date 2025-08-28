@@ -29,7 +29,7 @@ defmodule ExpertLspOrg.RootLayout do
         end
 
         body class: "bg-black text-white" do
-          main class: "container h-[100dvh] px-4 mx-auto flex flex-col" do
+          main class: "container min-h-[100dvh] px-4 mx-auto flex flex-col" do
             div class: "h-full flex-1" do
               render(@inner_content)
             end

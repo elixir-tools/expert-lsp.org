@@ -42,7 +42,7 @@ defmodule ExpertLspOrg.HomePage do
         "at the Erlang Ecosystem Foundation."
       end
 
-      div class: "flex gap-4" do
+      div class: "flex gap-4 flex-wrap" do
         img class: "h-[100px]", src: "./sponsors/fly.png"
         img class: "h-[100px]", src: "./sponsors/tauspace.png"
         img class: "h-[100px]", src: "./sponsors/river.png"
