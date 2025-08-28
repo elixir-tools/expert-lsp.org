@@ -1,9 +1,3 @@
 [build]
   command = "mix local.hex --force && mix local.rebar --force && mix deps.get --only prod && MIX_ENV=prod mix build"
   publish = "_site"
-
-[[plugins]]
-  package = "netlify-plugin-no-more-404"
-
-  [plugins.inputs]
-    on404 = "warning" 
