@@ -24,7 +24,7 @@ defmodule ExpertLspOrg.HomePage do
       end
 
       p class: "font-sans mt-8 text-lg mb-8" do
-        "The soure code is available on"
+        "The source code is available on"
         a class: "text-purple-500 hover:underline", href: "https://github.com/elixir-lang/expert" do
           "GitHub."
         end
