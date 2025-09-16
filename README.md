@@ -1,4 +1,6 @@
-# expert_lsp_org
+# expert_lsp_org - Expert, Elixir LSP website
+
+This is the impllementation of [expert-lsp.org](expert-lsp.org), the website for _Expert_, the [official Elixir Language Server Protocal server](expert-lsp.org). The [repository for the implementation of the Elixir LSP server](https://github.com/elixir-lang/expert](https://github.com/elixir-lang/expert) itself is at [https://github.com/elixir-lang/expert](https://github.com/elixir-lang/expert)
 
 ## Getting Started
 
