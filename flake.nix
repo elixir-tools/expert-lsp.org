@@ -3,12 +3,20 @@
 
   inputs = {
     beam-flakes = {
-      url = "github:mhanberg/nix-beam-flakes";
+      url = "github:elixir-tools/nix-beam-flakes";
       inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  };
+
+  nixConfig = {
+    extra-substituters = [
+      "https://nix-beam-flakes.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nix-beam-flakes.cachix.org-1:iRMzLmb/dZFw7v08Rp3waYlWqYZ8nR3fmtFwq2prdk4="
+    ];
   };
 
   outputs = inputs @ {
@@ -21,18 +29,40 @@
 
       systems = ["aarch64-darwin" "x86_64-darwin" "x86_64-linux"];
 
-      perSystem = {pkgs, ...}: {
+      perSystem = {
+        pkgs,
+        config,
+        ...
+      }: {
         beamWorkspace = {
           enable = true;
           devShell = {
-            packages = with pkgs; [
-              netlify-cli
-            ];
-            languageServers.elixir = true;
+            enable = false;
+            languageServers.elixir = false;
             languageServers.erlang = false;
           };
           versions = {
-            fromToolVersions = ./.tool-versions;
+            elixir = "1.19.4";
+            erlang = "28.2";
+          };
+        };
+        devShells = let
+          buildPackages = with pkgs; [
+            netlify-cli
+            tailwindcss_4
+          ];
+          devPackages = with pkgs; [
+            tailwindcss-language-server
+          ];
+        in {
+          netlify = pkgs.mkShell {
+            packages = config.beamWorkspace.devShell.packages ++ buildPackages;
+          };
+          default = pkgs.mkShell {
+            packages = config.beamWorkspace.devShell.packages ++ buildPackages ++ devPackages;
+            shellHook = ''
+              export MIX_TAILWIND_PATH="${pkgs.tailwindcss_4}/bin/tailwindcss"
+            '';
           };
         };
       };

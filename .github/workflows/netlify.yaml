@@ -1,0 +1,55 @@
+name: Netlify Deploy
+
+on:
+  push:
+  workflow_dispatch: 
+  schedule:
+  # 6am ET, posts will publish if rebuilt after 1am ET
+  - cron: "0 10 * * *"
+
+jobs:
+  build:
+    env:
+      MIX_ENV: prod
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            extra-substituters = https://nix-beam-flakes.cachix.org
+            extra-trusted-public-keys = nix-beam-flakes.cachix.org-1:iRMzLmb/dZFw7v08Rp3waYlWqYZ8nR3fmtFwq2prdk4=
+            accept-flake-config = true
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            deps
+            _build
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/flake.nix') }}-${{ hashFiles('**/mix.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-mix-
+
+      - name: Remove stale changelog.md
+        run: rm _build/changelog.md || true
+
+      - name: Install Dependencies
+        run: nix develop .#netlify --command bash -c 'mix deps.get'
+
+      - name: Build
+        run: nix develop .#netlify --command bash -c 'mix build'
+
+      - name: Deploy Branch Preview
+        if: ${{ github.ref_name != 'main' }}
+        run: nix develop .#netlify --command bash -c 'netlify deploy --alias ${{ github.ref_name}} --no-build'
+
+      - name: Deploy Production
+        if: ${{ github.ref_name == 'main' }}
+        run: nix develop .#netlify --command bash -c 'netlify deploy --prod --no-build'
+
+
+
+
