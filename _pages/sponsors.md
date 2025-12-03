@@ -20,6 +20,6 @@ Work paid for through sponsorships is tracked [here](https://docs.google.com/doc
 
 A huge thanks to our current sponsors!
 
-![](./sponsors/fly.png)
-![](./sponsors/tauspace.png)
-![](./sponsors/river.png)
+![](/sponsors/fly.png)
+![](/sponsors/tauspace.png)
+![](/sponsors/river.png)

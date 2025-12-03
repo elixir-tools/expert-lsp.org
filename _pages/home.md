@@ -14,6 +14,6 @@ Read more about the history of Expert [here](/history).
 
 A huge thanks to our current sponsors! You can read more about sponsorship on the [Sponsors](/sponsors) page.
 
-![](./sponsors/fly.png)
-![](./sponsors/tauspace.png)
-![](./sponsors/river.png)
+![](/sponsors/fly.png)
+![](/sponsors/tauspace.png)
+![](/sponsors/river.png)
