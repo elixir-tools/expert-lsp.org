@@ -1,5 +1,5 @@
 [
   import_deps: [:temple],
-  plugins: [],
+  plugins: [TailwindFormatter.Temple],
   inputs: ["{mix,.formatter}.exs", "{config,lib,test}/**/*.{ex,exs}"]
 ]

@@ -6,7 +6,7 @@ defmodule ExpertLspOrg.RootLayout do
     temple do
       "<!DOCTYPE html>"
 
-      html lang: "en" do
+      html lang: "en", class: "scroll-p-[120px]" do
         head do
           meta charset: "utf-8"
           meta http_equiv: "X-UA-Compatible", content: "IE=edge"
@@ -29,8 +29,29 @@ defmodule ExpertLspOrg.RootLayout do
         end
 
         body class: "bg-black text-white" do
-          main class: "container min-h-[100dvh] px-4 mx-auto flex flex-col" do
-            div class: "h-full flex-1" do
+          main class: "min-h-[100dvh] grid-rows-[auto_1fr_auto] grid-cols-[100%] mx-auto grid" do
+            header class:
+                     "border-b-1 sticky top-0 z-30 w-full border-white bg-black px-4 pb-6 lg:px-8" do
+              div class: "container mx-auto mt-4 flex items-center justify-between " do
+                div do
+                  a href: "/" do
+                    h2 class: "font-fancy text-2xl font-bold uppercase md:text-4xl" do
+                      "Expert"
+                    end
+                  end
+                end
+
+                div class: "flex gap-4" do
+                  button class: "block lg:hidden",
+                         type: "button",
+                         onclick: "sidebar.classList.toggle('hidden')" do
+                    c &ExpertLspOrg.Icons.menu/1
+                  end
+                end
+              end
+            end
+
+            div class: "h-full px-2" do
               render(@inner_content)
             end
 
@@ -47,7 +68,7 @@ defmodule ExpertLspOrg.RootLayout do
 
   def footer _assigns do
     temple do
-      footer class: "text-center my-8" do
+      footer class: "my-8 text-center" do
         p class: "text-xs" do
           "built with"
 

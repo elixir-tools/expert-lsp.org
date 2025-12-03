@@ -32,7 +32,9 @@ defmodule ExpertLspOrg.MixProject do
     [
       {:tableau, "~> 0.17"},
       {:tailwind, "~> 0.3", runtime: Mix.env() == :dev},
-      {:temple, "~> 0.12"}
+      {:temple, "~> 0.12"},
+      {:req, "~> 0.5"},
+      {:tailwind_formatter, github: "mhanberg/tailwind_formatter", only: [:dev, :test]}
 
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
