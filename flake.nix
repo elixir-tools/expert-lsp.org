@@ -13,9 +13,11 @@
   nixConfig = {
     extra-substituters = [
       "https://nix-beam-flakes.cachix.org"
+      "https://expert-lsp.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nix-beam-flakes.cachix.org-1:iRMzLmb/dZFw7v08Rp3waYlWqYZ8nR3fmtFwq2prdk4="
+      "expert-lsp.cachix.org-1:SI/szrFZKe5GGeg0H8NMFDw3XhIZNEx4dHP5R2btCMk="
     ];
   };
 
