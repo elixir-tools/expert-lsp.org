@@ -129,9 +129,9 @@ You can also manually download the executable from the [releases](https://github
 
 > [!tip]
 > 
-> Expert uses [just](). You can install it with your systems package manager.
+> Expert uses [just](https://just.systems/man/en/). You can install it with your systems package manager.
 
-Recipes for building from source are located in our [justfile](TODO).
+Recipes for building from source are located in our [justfile](https://github.com/elixir-lang/expert/blob/main/justfile).
 
 ```shell
 # Builds an executable for your OS and copies it into `~/.local/bin/`
