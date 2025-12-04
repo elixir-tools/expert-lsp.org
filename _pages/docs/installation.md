@@ -92,6 +92,19 @@ We provide a flake that can be used.
 
 Not currently supported in [beam-flakes](https://github.com/elixir-tools/nix-beam-flakes).
 
+### Archlinux
+
+Install the AUR [expert-git](https://aur.archlinux.org/packages/expert-git) package.
+
+```sh
+yay -s expert-git
+```
+
+or
+
+```sh
+paru -s expert-git
+```
 
 ## GitHub Releases
 
